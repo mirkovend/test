@@ -59,15 +59,15 @@
                 dataType: 'json',
                 data: JSON.stringify(e.model),
                 success: function (data) {
-										dataSource.read();
-                    that.refresh();
+										that.refresh();
                 },
                 error: function (data) {
                     that.cancelRow();
 
                 }
-
             });
+						dataSource.read();
+						this.refresh();
           },
           remove: function(e) {
            
