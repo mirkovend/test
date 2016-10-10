@@ -20,7 +20,7 @@
           pageSize: 20,
           transport: {
             read: {
-              url:"http://mangtaswebapi.dev/api/cases/",
+              url:"http://mangtaswebapi-aguilarufino790764.codeanyapp.com/api/cases/",
               type: "GET",
               dataType: "json",
             }
@@ -75,7 +75,7 @@
         
             var that = this;
             $.ajax({
-                url: "http://mangtaswebapi.dev/api/cases" + (e.model.id == null ? "" : "/" + e.model.id),
+                url: "http://mangtaswebapi-aguilarufino790764.codeanyapp.com/api/cases" + (e.model.id == null ? "" : "/" + e.model.id),
                 type: e.model.id == null ? 'POST' : 'PUT',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -95,7 +95,7 @@
            
             var that = this;
             $.ajax({
-                url: "http://mangtaswebapi.dev/api/cases/"+e.model.id,
+                url: "http://mangtaswebapi-aguilarufino790764.codeanyapp.com/api/cases/"+e.model.id,
                 type: 'DELETE',
                 success: function (data) {
                     that.refresh();

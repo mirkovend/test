@@ -22,13 +22,13 @@ class UserController extends Controller
     public function getUsers()
     {
         
-        // $users = User::all();
+        $users = User::all();
 
-        // return $this->response->collection($users, new UserTransformer);
+        return $this->response->collection($users, new UserTransformer);
 
-        $users = User::paginate(2);
+//         $users = User::paginate(2);
 
-        return $this->response->paginator($users, new UserTransformer);
+//         return $this->response->paginator($users, new UserTransformer);
 
     }
 }
