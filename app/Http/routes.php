@@ -26,6 +26,37 @@ Route::get('/', function () {
 |
 */
 
+Route::get('/ui', function () {
+    return view('uipage');
+});
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+	$api->get('test', function () {
+        return 'It is ok';
+    });
+});
+// ['middleware' => 'api.auth']
+$api->version('v1', [], function ($api) {
+    $api->get('users', 'App\Http\Controllers\Api\UserController@getUsers');
+
+    $api->group([], function ($api) {
+		// $api->get('cases', 'App\Api\V1\Controllers\CasesController@index');
+		// $api->get('cases/{id}', 'App\Api\V1\Controllers\CasesController@show');
+		// $api->post('cases', 'App\Api\V1\Controllers\CasesController@store');
+		// $api->put('cases/{id}', 'App\Api\V1\Controllers\CasesController@update');
+		// $api->delete('cases/{id}', 'App\Api\V1\Controllers\CasesController@destroy');
+		$api->resource('cases', 'App\Http\Controllers\Api\CasesController');
+	});
+});
+
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
