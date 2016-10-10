@@ -24,24 +24,6 @@
               type: "GET",
               dataType: "json",
             }
-            // ,
-            // create: {
-            //   url:"http://mangtaswebapi.dev/api/cases/",
-            //   type: "POST",
-            //   dataType: "json",
-            // },
-            // udpate: {
-            //     url:"http://mangtaswebapi.dev/api/cases/",
-            //     type: "PUT",
-            //     dataType: "json",
-            // }
-            // ,
-            // parameterMap: function(options, operation) {
-            //     if (operation !== "udpate" && options.models) {
-            //         alert(kendo.stringify(options.models));
-            //       return {models: kendo.stringify(options.models)};
-            //     }
-            // }
           },
           schema: {
             data: "cases",
@@ -55,9 +37,6 @@
              }
             }
           }
-          // parameterMap   : function (options) {
-          //   return JSON.stringify(options);
-          // }
       });
 
       $("#grid").kendoGrid({
@@ -72,7 +51,6 @@
               { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
           editable: "popup",
           save: function(e) {
-        
             var that = this;
             $.ajax({
                 url: "http://mangtaswebapi-aguilarufino790764.codeanyapp.com/api/cases" + (e.model.id == null ? "" : "/" + e.model.id),
@@ -81,8 +59,8 @@
                 dataType: 'json',
                 data: JSON.stringify(e.model),
                 success: function (data) {
+										dataSource.read();
                     that.refresh();
-
                 },
                 error: function (data) {
                     that.cancelRow();
