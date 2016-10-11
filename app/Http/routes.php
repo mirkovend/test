@@ -26,8 +26,8 @@ Route::get('/', function () {
 |
 */
 
-Route::get('/ui', function () {
-    return view('uipage');
+Route::get('/casefiles', function () {
+    return view('casefiles');
 });
 
 $api = app('Dingo\Api\Routing\Router');

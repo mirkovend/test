@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple View</title>
+	<title>Case Files</title>
 	<link href="styles/kendo.common.min.css" rel="stylesheet">
     <link href="styles/kendo.rtl.min.css" rel="stylesheet">
     <link href="styles/kendo.default.min.css" rel="stylesheet">
